@@ -1,0 +1,74 @@
+import 'package:news_app/app/data/models/api_list_response.dart';
+import 'package:news_app/app/data/models/article.dart';
+import 'package:news_app/app/data/models/repository_result.dart';
+import 'package:news_app/app/data/repositories/base_repository.dart';
+import 'package:news_app/app/data/providers/news_api_client.dart';
+import 'package:news_app/core/configs/locator_config.dart';
+
+class NewsRepositories extends BaseRepository {
+  final NewsAPIClient _newsAPIClient = locatorConfig.get<NewsAPIClient>();
+
+  Future<RepositoryResult> getEverythingRepo({
+    String? query,
+    String? from,
+    String? sources,
+    String? country,
+    String? sortBy,
+    String? language,
+  }) async {
+    return handleRequest(
+      () => _newsAPIClient.getEverythingAPI(
+        query ?? "",
+        from ?? "",
+        sources ?? "",
+        country ?? "",
+        sortBy ?? "",
+        language ?? "",
+      ),
+      onSuccess: (ApiListResponse<Article> response) => response.status == "ok"
+          ? RepositoryResult(
+              isError: false,
+              totalResults: response.totalResults,
+              data: response.articles ?? [],
+              message: 'Success fetch news',
+            )
+          : RepositoryResult(
+              isError: true,
+              data: null,
+              message: 'Something went wrong',
+            ),
+    );
+  }
+
+  Future<RepositoryResult> getTopHeadlinesRepo({
+    String? q,
+    String? from,
+    String? sources,
+    String? country,
+    String? sortBy,
+    String? language,
+  }) async {
+    return handleRequest(
+      () => _newsAPIClient.getTopHeadlinesAPI(
+        q ?? "",
+        from ?? "",
+        sources ?? "",
+        country ?? "",
+        sortBy ?? "",
+        language ?? "",
+      ),
+      onSuccess: (ApiListResponse<Article> response) => response.status == "ok"
+          ? RepositoryResult(
+              isError: false,
+              totalResults: response.totalResults,
+              data: response.articles ?? [],
+              message: response.message,
+            )
+          : RepositoryResult(
+              isError: true,
+              data: null,
+              message: response.message,
+            ),
+    );
+  }
+}

@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:news_app/app/core/constants/app_enum.dart';
+import 'package:news_app/app/core/constants/app_enums.dart';
 
 class NetworkCheckingService extends GetxService {
   static NetworkCheckingService get instance => Get.find();

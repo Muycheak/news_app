@@ -1,9 +1,9 @@
-import 'package:news_app/app/data/models/api_list_response.dart';
 import 'package:news_app/app/data/models/article.dart';
+import 'package:news_app/app/core/configs/locator_config.dart';
+import 'package:news_app/app/data/models/api_list_response.dart';
 import 'package:news_app/app/data/models/repository_result.dart';
-import 'package:news_app/app/data/repositories/base_repository.dart';
 import 'package:news_app/app/data/providers/news_api_client.dart';
-import 'package:news_app/core/configs/locator_config.dart';
+import 'package:news_app/app/data/repositories/base_repository.dart';
 
 class NewsRepositories extends BaseRepository {
   final NewsAPIClient _newsAPIClient = locatorConfig.get<NewsAPIClient>();

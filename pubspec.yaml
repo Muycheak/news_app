@@ -43,6 +43,7 @@ dependencies:
   dotenv: ^4.2.0
   retrofit: ^4.4.1
   connectivity_plus: ^7.3.1
+  flutter_svg: ^2.0.9
 
 
 
@@ -75,9 +76,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/icons/navigation/
+    - assets/fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -104,3 +107,185 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  fonts:
+    # ── Inter 18pt ──────────────────────────────────────────────────────────
+    - family: Inter_18pt
+      fonts:
+        - asset: assets/fonts/Inter_18pt-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Inter_18pt-ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/Inter_18pt-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Inter_18pt-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/Inter_18pt-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Inter_18pt-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Inter_18pt-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter_18pt-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Inter_18pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter_18pt-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Inter_18pt-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter_18pt-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/Inter_18pt-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Inter_18pt-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Inter_18pt-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Inter_18pt-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/Inter_18pt-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Inter_18pt-BlackItalic.ttf
+          weight: 900
+          style: italic
+
+    # ── Inter 24pt ──────────────────────────────────────────────────────────
+    - family: Inter_24pt
+      fonts:
+        - asset: assets/fonts/Inter_24pt-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Inter_24pt-ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/Inter_24pt-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Inter_24pt-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/Inter_24pt-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Inter_24pt-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Inter_24pt-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter_24pt-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Inter_24pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter_24pt-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Inter_24pt-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter_24pt-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/Inter_24pt-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Inter_24pt-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Inter_24pt-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Inter_24pt-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/Inter_24pt-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Inter_24pt-BlackItalic.ttf
+          weight: 900
+          style: italic
+
+    # ── Inter 28pt ──────────────────────────────────────────────────────────
+    - family: Inter_28pt
+      fonts:
+        - asset: assets/fonts/Inter_28pt-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Inter_28pt-ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/Inter_28pt-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Inter_28pt-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/Inter_28pt-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Inter_28pt-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Inter_28pt-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter_28pt-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Inter_28pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter_28pt-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Inter_28pt-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter_28pt-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/Inter_28pt-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Inter_28pt-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Inter_28pt-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Inter_28pt-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/Inter_28pt-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Inter_28pt-BlackItalic.ttf
+          weight: 900
+          style: italic
+
+    # ── Playfair Display ─────────────────────────────────────────────────────
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/PlayfairDisplay-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/PlayfairDisplay-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/PlayfairDisplay-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/PlayfairDisplay-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/PlayfairDisplay-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/PlayfairDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/PlayfairDisplay-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/PlayfairDisplay-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/PlayfairDisplay-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/PlayfairDisplay-Black.ttf
+          weight: 900
+        - asset: assets/fonts/PlayfairDisplay-BlackItalic.ttf
+          weight: 900
+          style: italic

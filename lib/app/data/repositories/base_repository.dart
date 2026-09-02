@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:news_app/app/core/constants/app_enum.dart';
+import 'package:news_app/app/core/constants/app_enums.dart';
 import 'package:news_app/app/data/models/repository_result.dart';
 import 'package:news_app/app/core/services/network_checking_service.dart';
 

@@ -23,6 +23,7 @@ class _NewsAPIClient implements NewsAPIClient {
   Future<ApiListResponse<Article>> getEverythingAPI(
     String q,
     String from,
+    String to,
     String sources,
     String country,
     String sortBy,
@@ -32,6 +33,7 @@ class _NewsAPIClient implements NewsAPIClient {
     final queryParameters = <String, dynamic>{
       r'q': q,
       r'from': from,
+      r'to': to,
       r'sources': sources,
       r'country': country,
       r'sortBy': sortBy,
@@ -64,6 +66,7 @@ class _NewsAPIClient implements NewsAPIClient {
   Future<ApiListResponse<Article>> getTopHeadlinesAPI(
     String q,
     String from,
+    String to,
     String sources,
     String country,
     String sortBy,
@@ -73,6 +76,7 @@ class _NewsAPIClient implements NewsAPIClient {
     final queryParameters = <String, dynamic>{
       r'q': q,
       r'from': from,
+      r'to': to,
       r'sources': sources,
       r'country': country,
       r'sortBy': sortBy,

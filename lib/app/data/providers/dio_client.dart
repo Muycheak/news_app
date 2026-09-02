@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:news_app/app/data/providers/token_interceptor.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 Dio buildDioClient(String baseURL, String apiKey) {
   final dio = Dio()
@@ -12,16 +14,17 @@ Dio buildDioClient(String baseURL, String apiKey) {
   dio.interceptors.addAll([
     TokenInterceptor(apiKey: apiKey),
     // // If want to log all request and response, Uncomment PrettyDioLogger below
-    //   PrettyDioLogger(
-    //       request: false,
-    //       requestBody: true,
-    //       requestHeader: false,
-    //       responseBody: true,
-    //       responseHeader: false,
-    //       error: true,
-    //       logPrint: (object) {
-    //         debugPrint(object.toString());
-    //       })
+    PrettyDioLogger(
+      request: false,
+      requestBody: true,
+      requestHeader: false,
+      responseBody: true,
+      responseHeader: false,
+      error: true,
+      logPrint: (object) {
+        debugPrint(object.toString());
+      },
+    ),
   ]);
   return dio;
 }

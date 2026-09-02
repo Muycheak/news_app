@@ -11,6 +11,7 @@ class NewsRepositories extends BaseRepository {
   Future<RepositoryResult> getEverythingRepo({
     String? query,
     String? from,
+    String? to,
     String? sources,
     String? country,
     String? sortBy,
@@ -20,6 +21,7 @@ class NewsRepositories extends BaseRepository {
       () => _newsAPIClient.getEverythingAPI(
         query ?? "",
         from ?? "",
+        to ?? "",
         sources ?? "",
         country ?? "",
         sortBy ?? "",
@@ -43,6 +45,7 @@ class NewsRepositories extends BaseRepository {
   Future<RepositoryResult> getTopHeadlinesRepo({
     String? q,
     String? from,
+    String? to,
     String? sources,
     String? country,
     String? sortBy,
@@ -52,6 +55,7 @@ class NewsRepositories extends BaseRepository {
       () => _newsAPIClient.getTopHeadlinesAPI(
         q ?? "",
         from ?? "",
+        to ?? "",
         sources ?? "",
         country ?? "",
         sortBy ?? "",

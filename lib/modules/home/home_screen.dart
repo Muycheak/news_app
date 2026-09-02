@@ -25,32 +25,34 @@ class HomeScreen extends GetView<HomeController> {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () => controller.changeCategoryIndex(index),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: controller.categoryIndex.value == index
-                            ? AppColor.primaryColor
-                            : AppColor.neutralColor,
-                        borderRadius: BorderRadius.circular(
-                          AppSizes.borderRadiusSmall,
+                  return Obx(
+                    () => InkWell(
+                      onTap: () => controller.changeCategoryIndex(index),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: controller.categoryIndex.value == index
+                              ? AppColor.primaryColor
+                              : AppColor.neutralColor,
+                          borderRadius: BorderRadius.circular(
+                            AppSizes.borderRadiusSmall,
+                          ),
+                          border: Border.all(
+                            color: AppColor.primaryColor,
+                            width: 1,
+                          ),
                         ),
-                        border: Border.all(
-                          color: AppColor.primaryColor,
-                          width: 1,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 8,
                         ),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 8,
-                      ),
-                      child: Center(
-                        child: Text(
-                          controller.categories[index],
-                          style: AppTextstyles.body.copyWith(
-                            color: controller.categoryIndex.value == index
-                                ? AppColor.neutralColor
-                                : AppColor.primaryColor,
+                        child: Center(
+                          child: Text(
+                            controller.categories[index],
+                            style: AppTextstyles.headline.copyWith(
+                              color: controller.categoryIndex.value == index
+                                  ? AppColor.neutralColor
+                                  : AppColor.primaryColor,
+                            ),
                           ),
                         ),
                       ),

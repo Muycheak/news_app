@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:news_app/app/core/themes/app_themes.dart';
 import 'package:news_app/app/core/constants/app_enums.dart';
 import 'package:news_app/app/core/constants/app_routes.dart';
+import 'package:news_app/app/core/configs/locator_config.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initLocatorConfig();
   runApp(const MyApp());
 }
 

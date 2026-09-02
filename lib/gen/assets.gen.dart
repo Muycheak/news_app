@@ -322,6 +322,10 @@ class $AssetsIconsNavigationGen {
 }
 
 abstract final class Assets {
+  static const String aEnv = '.env';
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+
+  /// List of all assets
+  static List<String> get values => [aEnv];
 }

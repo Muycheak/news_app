@@ -1,3 +1,4 @@
+import 'package:flutter/rendering.dart';
 import 'package:news_app/app/data/models/article.dart';
 import 'package:news_app/app/core/configs/locator_config.dart';
 import 'package:news_app/app/data/models/api_list_response.dart';
@@ -61,18 +62,24 @@ class NewsRepositories extends BaseRepository {
         sortBy,
         language,
       ),
-      onSuccess: (ApiListResponse<Article> response) => response.status == "ok"
-          ? RepositoryResult(
-              isError: false,
-              totalResults: response.totalResults,
-              data: response.articles ?? [],
-              message: response.message,
-            )
-          : RepositoryResult(
-              isError: true,
-              data: [],
-              message: response.message,
-            ),
+      onSuccess: (ApiListResponse<Article> response) {
+        debugPrint("Response: $response");
+        if (response.status == "ok") {
+          debugPrint("Data: ${response.articles}");
+          return RepositoryResult(
+            isError: false,
+            totalResults: response.totalResults,
+            data: response.articles ?? [],
+            message: response.message,
+          );
+        } else {
+          return RepositoryResult(
+            isError: true,
+            data: [],
+            message: response.message,
+          );
+        }
+      },
     );
   }
 }

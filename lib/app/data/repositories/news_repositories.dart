@@ -9,9 +9,9 @@ class NewsRepositories extends BaseRepository {
   final NewsAPIClient _newsAPIClient = locatorConfig.get<NewsAPIClient>();
 
   Future<RepositoryResult> getEverythingRepo({
-    String? query,
-    String? from,
-    String? to,
+    required String query,
+    required String from,
+    required String to,
     String? sources,
     String? country,
     String? sortBy,
@@ -19,13 +19,13 @@ class NewsRepositories extends BaseRepository {
   }) async {
     return handleRequest(
       () => _newsAPIClient.getEverythingAPI(
-        query ?? "",
-        from ?? "",
-        to ?? "",
-        sources ?? "",
-        country ?? "",
-        sortBy ?? "",
-        language ?? "",
+        query,
+        from,
+        to,
+        sources,
+        country,
+        sortBy,
+        language,
       ),
       onSuccess: (ApiListResponse<Article> response) => response.status == "ok"
           ? RepositoryResult(
@@ -43,9 +43,9 @@ class NewsRepositories extends BaseRepository {
   }
 
   Future<RepositoryResult> getTopHeadlinesRepo({
-    String? q,
-    String? from,
-    String? to,
+    String? category,
+    required String from,
+    required String to,
     String? sources,
     String? country,
     String? sortBy,
@@ -53,13 +53,13 @@ class NewsRepositories extends BaseRepository {
   }) async {
     return handleRequest(
       () => _newsAPIClient.getTopHeadlinesAPI(
-        q ?? "",
-        from ?? "",
-        to ?? "",
-        sources ?? "",
-        country ?? "",
-        sortBy ?? "",
-        language ?? "",
+        category,
+        from,
+        to,
+        sources,
+        country,
+        sortBy,
+        language,
       ),
       onSuccess: (ApiListResponse<Article> response) => response.status == "ok"
           ? RepositoryResult(
@@ -70,7 +70,7 @@ class NewsRepositories extends BaseRepository {
             )
           : RepositoryResult(
               isError: true,
-              data: null,
+              data: [],
               message: response.message,
             ),
     );

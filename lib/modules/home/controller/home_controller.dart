@@ -7,23 +7,21 @@ class HomeController extends GetxController {
   final NewsRepositories _newsRepositories = NewsRepositories();
 
   RxList<String> categories = RxList([
-    'Trending',
+    'General',
+    'Technology',
     'Sports',
-    'Tech',
     'Business',
     'Entertainment',
     'Health',
     'Science',
-    'World',
-    'Politics',
-    'Lifestyle',
-    'Fashion',
-    'Travel',
-    'Food',
-    'Other',
   ]);
 
   RxInt categoryIndex = 0.obs;
+
+  RxBool isLoading = false.obs;
+  RxString errorMessage = ''.obs;
+
+  RxList<Article> articles = RxList<Article>();
 
   @override
   Future<void> onInit() async {
@@ -33,19 +31,32 @@ class HomeController extends GetxController {
 
   void changeCategoryIndex(int index) {
     categoryIndex.value = index;
+    fetchNews();
   }
 
   Future<void> fetchNews() async {
     try {
+      isLoading.value = true;
+      errorMessage.value = "";
+      DateTime dateTime = DateTime.now();
+
+      String today = '${dateTime.year}-${dateTime.month}-${dateTime.day}';
+
       final RepositoryResult repositoryResult = await _newsRepositories
-          .getEverythingRepo(query: null, from: '2026-09-01', to: '2026-09-01');
+          .getTopHeadlinesRepo(
+            category: categories[categoryIndex.value],
+            from: today,
+            to: today,
+          );
       if (repositoryResult.isError) {
-        // Process the news data
+        errorMessage.value = repositoryResult.message;
       } else {
-        List<Article> articles = repositoryResult.data;
+        articles.addAll(repositoryResult.data);
       }
     } catch (e) {
-      // Handle error
+      errorMessage.value = e.toString();
+    } finally {
+      isLoading.value = false;
     }
   }
 }

@@ -12,22 +12,22 @@ abstract class NewsAPIClient {
   @GET("/everything")
   Future<ApiListResponse<Article>> getEverythingAPI(
     @Query("q") String q,
-    @Query("from") String from,
-    @Query("to") String to,
-    @Query("sources") String sources,
-    @Query("country") String country,
-    @Query("sortBy") String sortBy,
-    @Query("language") String language,
+    @Query("from") String? from,
+    @Query("to") String? to,
+    @Query("sources") String? sources,
+    @Query("country") String? country,
+    @Query("sortBy") String? sortBy,
+    @Query("language") String? language,
   );
 
   @GET("/top-headlines")
   Future<ApiListResponse<Article>> getTopHeadlinesAPI(
-    @Query("q") String q,
-    @Query("from") String from,
-    @Query("to") String to,
-    @Query("sources") String sources,
-    @Query("country") String country,
-    @Query("sortBy") String sortBy,
-    @Query("language") String language,
+    @Query("category") String? category,
+    @Query("from") String? from,
+    @Query("to") String? to,
+    @Query("sources") String? sources,
+    @Query("country") String? country,
+    @Query("sortBy") String? sortBy,
+    @Query("language") String? language,
   );
 }

@@ -16,18 +16,14 @@ class ApiListResponse<T extends Base> {
   });
 
   factory ApiListResponse.fromJson(Map<String, dynamic> json) {
-    // debugPrint("json: ${json}");
-    var rawData = json['data'];
+    var rawData = json['articles'];
     List<dynamic> listData = [];
 
     if (rawData is List) {
       listData = rawData;
     } else if (rawData is Map<String, dynamic>) {
-      // Handle Laravel/paginated response where data is wrapped
-      if (rawData.containsKey('data') && rawData['data'] is List) {
-        listData = rawData['data'];
-      } else if (rawData.containsKey('items') && rawData['items'] is List) {
-        listData = rawData['items'];
+      if (rawData.containsKey('articles') && rawData['articles'] is List) {
+        listData = rawData['articles'];
       }
     }
 

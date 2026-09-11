@@ -1,4 +1,3 @@
-import 'package:flutter/rendering.dart';
 import 'package:news_app/app/data/models/article.dart';
 import 'package:news_app/app/core/configs/locator_config.dart';
 import 'package:news_app/app/data/models/api_list_response.dart';
@@ -51,6 +50,8 @@ class NewsRepositories extends BaseRepository {
     String? country,
     String? sortBy,
     String? language,
+    int? perPage = 10,
+    int? page = 1,
   }) async {
     return handleRequest(
       () => _newsAPIClient.getTopHeadlinesAPI(
@@ -61,11 +62,11 @@ class NewsRepositories extends BaseRepository {
         country,
         sortBy,
         language,
+        perPage,
+        page,
       ),
       onSuccess: (ApiListResponse<Article> response) {
-        debugPrint("Response: $response");
         if (response.status == "ok") {
-          debugPrint("Data: ${response.articles}");
           return RepositoryResult(
             isError: false,
             totalResults: response.totalResults,

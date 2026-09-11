@@ -47,4 +47,19 @@ class Article implements Base {
   fromJson(Map<String, dynamic> json) {
     return Article.fromJson(json);
   }
+
+  String getTimeAgo() {
+    if (publishedAt == null) return "";
+    Duration timeAgo = DateTime.now().difference(DateTime.parse(publishedAt!));
+    if (timeAgo.inDays > 0) {
+      return "${timeAgo.inDays} day${timeAgo.inDays == 1 ? '' : 's'} ago";
+    }
+    if (timeAgo.inHours > 0) {
+      return "${timeAgo.inHours} hour${timeAgo.inHours == 1 ? '' : 's'} ago";
+    }
+    if (timeAgo.inMinutes > 0) {
+      return "${timeAgo.inMinutes} minute${timeAgo.inMinutes == 1 ? '' : 's'} ago";
+    }
+    return "Just now";
+  }
 }

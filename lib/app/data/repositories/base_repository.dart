@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:news_app/app/core/constants/app_enums.dart';
 import 'package:news_app/app/data/models/repository_result.dart';
 import 'package:news_app/app/core/services/network_checking_service.dart';
@@ -12,8 +13,10 @@ abstract class BaseRepository {
       final response = await request();
       return onSuccess(response);
     } on DioException catch (err) {
+      debugPrint("DioException: $err");
       return _handleDioException(err);
-    } catch (_) {
+    } catch (err) {
+      debugPrint("Exception: $err");
       return _generalError();
     }
   }

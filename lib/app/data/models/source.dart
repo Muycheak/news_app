@@ -6,7 +6,7 @@ part 'source.g.dart';
 @JsonSerializable()
 class Source implements Base {
   @JsonKey(name: "id")
-  final int? id;
+  final String? id;
 
   @JsonKey(name: "name")
   final String? name;

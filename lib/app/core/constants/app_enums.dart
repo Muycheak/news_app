@@ -11,7 +11,8 @@ enum DioTryAgainMessage {
 enum NetworkStatus { online, offline, poor }
 
 enum AppScreens {
-  main('/main');
+  main('/main'),
+  trending('/trending');
 
   final String route;
   const AppScreens(this.route);

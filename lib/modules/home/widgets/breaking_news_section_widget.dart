@@ -4,6 +4,7 @@ import 'package:news_app/app/core/constants/app_sizes.dart';
 import 'package:news_app/app/core/themes/app_colors.dart';
 import 'package:news_app/app/core/themes/app_text_size.dart';
 import 'package:news_app/app/core/themes/app_textstyles.dart';
+import 'package:news_app/app/core/widgets/smart_network_image.dart';
 import 'package:news_app/app/data/models/article.dart';
 import 'package:news_app/modules/home/controller/home_controller.dart';
 
@@ -75,18 +76,13 @@ class BreakingNewsSectionWidget extends GetWidget<HomeController> {
               // Image
               ClipRRect(
                 borderRadius: BorderRadius.circular(AppSizes.borderRadiusLarge),
-                child: Image.network(
-                  article.urlToImage ??
+                child: AppSmartNetworkImage(
+                  imageUrl:
+                      article.urlToImage ??
                       'https://images.unsplash.com/photo-1496350785160-b6058a74ec78?q=80&w=600&auto=format&fit=crop',
                   height: 220,
                   width: double.infinity,
                   fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) => Container(
-                    height: 220,
-                    width: double.infinity,
-                    color: AppColor.primaryColor.withValues(alpha: 0.1),
-                    child: const Center(child: Icon(Icons.broken_image)),
-                  ),
                 ),
               ),
               // BREAKING Badge

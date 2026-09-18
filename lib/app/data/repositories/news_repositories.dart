@@ -16,6 +16,8 @@ class NewsRepositories extends BaseRepository {
     String? country,
     String? sortBy,
     String? language,
+    int? perPage,
+    int? page,
   }) async {
     return handleRequest(
       () => _newsAPIClient.getEverythingAPI(
@@ -26,18 +28,20 @@ class NewsRepositories extends BaseRepository {
         country,
         sortBy,
         language,
+        perPage,
+        page,
       ),
       onSuccess: (ApiListResponse<Article> response) => response.status == "ok"
           ? RepositoryResult(
               isError: false,
               totalResults: response.totalResults,
               data: response.articles ?? [],
-              message: 'Success fetch news',
+              message: response.message,
             )
           : RepositoryResult(
               isError: true,
-              data: null,
-              message: 'Something went wrong',
+              data: [],
+              message: response.message,
             ),
     );
   }

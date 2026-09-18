@@ -43,7 +43,7 @@ class _BreakingNewsShimmer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Large hero image placeholder
-        _shimmerBox(
+        shimmerBox(
           height: 220,
           width: double.infinity,
           borderRadius: AppSizes.borderRadiusLarge,
@@ -51,13 +51,13 @@ class _BreakingNewsShimmer extends StatelessWidget {
         const SizedBox(height: AppSizes.verticalSpaceMedium),
 
         // Source • time line
-        _shimmerBox(height: 14, width: 160),
+        shimmerBox(height: 14, width: 160),
         const SizedBox(height: AppSizes.verticalSpaceSmall),
 
         // Headline – 2 lines
-        _shimmerBox(height: 20, width: double.infinity),
+        shimmerBox(height: 20, width: double.infinity),
         const SizedBox(height: AppSizes.verticalSpaceSmall),
-        _shimmerBox(height: 20, width: 260),
+        shimmerBox(height: 20, width: 260),
       ],
     );
   }
@@ -78,8 +78,8 @@ class _TrendingStoriesShimmer extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _shimmerBox(height: 22, width: 160),
-            _shimmerBox(height: 22, width: 70),
+            shimmerBox(height: 22, width: 160),
+            shimmerBox(height: 22, width: 70),
           ],
         ),
         const SizedBox(height: AppSizes.verticalSpaceXLarge),
@@ -91,7 +91,7 @@ class _TrendingStoriesShimmer extends StatelessWidget {
           itemCount: 3,
           separatorBuilder: (_, __) =>
               const SizedBox(height: AppSizes.verticalSpaceXLarge),
-          itemBuilder: (_, __) => const _NewsCardShimmer(),
+          itemBuilder: (_, __) => const NewsCardShimmer(),
         ),
       ],
     );
@@ -101,8 +101,8 @@ class _TrendingStoriesShimmer extends StatelessWidget {
 // ---------------------------------------------------------------------------
 // Individual news-card skeleton (mirrors AppNewsListWidget layout)
 // ---------------------------------------------------------------------------
-class _NewsCardShimmer extends StatelessWidget {
-  const _NewsCardShimmer();
+class NewsCardShimmer extends StatelessWidget {
+  const NewsCardShimmer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +122,7 @@ class _NewsCardShimmer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Thumbnail image placeholder
-          _shimmerBox(
+          shimmerBox(
             height: 200,
             width: double.infinity,
             topLeft: const Radius.circular(12),
@@ -137,29 +137,29 @@ class _NewsCardShimmer extends StatelessWidget {
                 // Source • time row
                 Row(
                   children: [
-                    _shimmerBox(height: 12, width: 80),
+                    shimmerBox(height: 12, width: 80),
                     const SizedBox(width: 8),
-                    _shimmerBox(height: 12, width: 8),
+                    shimmerBox(height: 12, width: 8),
                     const SizedBox(width: 8),
-                    _shimmerBox(height: 12, width: 60),
+                    shimmerBox(height: 12, width: 60),
                   ],
                 ),
                 const SizedBox(height: 8),
 
                 // Title – 3 lines
-                _shimmerBox(height: 22, width: double.infinity),
+                shimmerBox(height: 22, width: double.infinity),
                 const SizedBox(height: 6),
-                _shimmerBox(height: 22, width: double.infinity),
+                shimmerBox(height: 22, width: double.infinity),
                 const SizedBox(height: 6),
-                _shimmerBox(height: 22, width: 200),
+                shimmerBox(height: 22, width: 200),
                 const SizedBox(height: 8),
 
                 // Description – 3 lines
-                _shimmerBox(height: 15, width: double.infinity),
+                shimmerBox(height: 15, width: double.infinity),
                 const SizedBox(height: 4),
-                _shimmerBox(height: 15, width: double.infinity),
+                shimmerBox(height: 15, width: double.infinity),
                 const SizedBox(height: 4),
-                _shimmerBox(height: 15, width: 220),
+                shimmerBox(height: 15, width: 220),
               ],
             ),
           ),
@@ -172,7 +172,7 @@ class _NewsCardShimmer extends StatelessWidget {
 // ---------------------------------------------------------------------------
 // Helper: a simple rounded rectangle shimmer block
 // ---------------------------------------------------------------------------
-Widget _shimmerBox({
+Widget shimmerBox({
   required double height,
   required double width,
   double borderRadius = AppSizes.borderRadiusSmall,
@@ -189,9 +189,6 @@ Widget _shimmerBox({
   return Container(
     height: height,
     width: width,
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: radius,
-    ),
+    decoration: BoxDecoration(color: Colors.white, borderRadius: radius),
   );
 }

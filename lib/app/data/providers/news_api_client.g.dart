@@ -28,6 +28,8 @@ class _NewsAPIClient implements NewsAPIClient {
     String? country,
     String? sortBy,
     String? language,
+    int? pageSize,
+    int? page,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -38,6 +40,8 @@ class _NewsAPIClient implements NewsAPIClient {
       r'country': country,
       r'sortBy': sortBy,
       r'language': language,
+      r'pageSize': pageSize,
+      r'page': page,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

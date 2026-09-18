@@ -18,6 +18,8 @@ abstract class NewsAPIClient {
     @Query("country") String? country,
     @Query("sortBy") String? sortBy,
     @Query("language") String? language,
+    @Query("pageSize") int? pageSize,
+    @Query("page") int? page,
   );
 
   @GET("/top-headlines")

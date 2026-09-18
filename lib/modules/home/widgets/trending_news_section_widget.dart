@@ -11,8 +11,6 @@ class TrendingNewsSectionWidget extends GetWidget<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    RxBool isLoading = false.obs;
-    RxString errorMessage = ''.obs;
     RxList<Article> articles = RxList<Article>();
 
     return Column(
@@ -57,48 +55,26 @@ class TrendingNewsSectionWidget extends GetWidget<HomeController> {
         Obx(() {
           switch (controller.categoryIndex.value) {
             case 0:
-              isLoading = controller.isLoadingGeneral;
-              errorMessage = controller.errorMessageGeneral;
               articles = controller.articlesGeneral;
               break;
             case 1:
-              isLoading = controller.isLoadingTechnology;
-              errorMessage = controller.errorMessageTechnology;
               articles = controller.articlesTechnology;
               break;
             case 2:
-              isLoading = controller.isLoadingSports;
-              errorMessage = controller.errorMessageSports;
               articles = controller.articlesSports;
               break;
             case 3:
-              isLoading = controller.isLoadingBusiness;
-              errorMessage = controller.errorMessageBusiness;
               articles = controller.articlesBusiness;
               break;
             case 4:
-              isLoading = controller.isLoadingEntertainment;
-              errorMessage = controller.errorMessageEntertainment;
               articles = controller.articlesEntertainment;
               break;
             case 5:
-              isLoading = controller.isLoadingHealth;
-              errorMessage = controller.errorMessageHealth;
               articles = controller.articlesHealth;
               break;
             case 6:
-              isLoading = controller.isLoadingScience;
-              errorMessage = controller.errorMessageScience;
               articles = controller.articlesScience;
               break;
-          }
-
-          if (isLoading.value) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          if (articles.isEmpty) {
-            return const Center(child: Text("No trending stories found."));
           }
 
           return ListView.separated(

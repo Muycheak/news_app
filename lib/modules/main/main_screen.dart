@@ -19,7 +19,7 @@ class MainScreen extends GetView<MainController> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'NEWS TODAY',
+          'THE EDITORIAL',
           style: AppTextstyles.headline.copyWith(fontSize: AppTextSize.header1),
         ),
         elevation: 0.5,
